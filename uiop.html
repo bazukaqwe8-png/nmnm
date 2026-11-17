@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Voting System</title>
+<link rel="stylesheet" href="tyuiop.css">
+</head>
+<body>
+<header>
+  <h1>🗳️ School Election System</h1>
+  <nav>
+    <button id="navVote" class="active" onclick="showPage('vote')">Vote</button>
+    <button id="navResults" onclick="showPage('results')">Results</button>
+    <button id="navAdmin" onclick="showPage('admin')">Admin</button>
+  </nav>
+</header>
+
+<div class="container">
+  <!-- LOGIN PAGE -->
+  <div id="pageLogin" class="card">
+    <h2>Voter Login</h2>
+    <p>One vote per position per Student ID</p>
+    <label>Student Name</label>
+    <input type="text" id="studentName" placeholder="e.g. Brian Otieno">
+    <label>Admission / Student ID</label>
+    <input type="text" id="studentId" placeholder="e.g. HB/2024/001">
+    <button class="btn btn-primary" onclick="login()">Start Voting →</button>
+    <p id="loginMsg" class="error"></p>
+  </div>
+
+  <!-- VOTING PAGE -->
+  <div id="pageVote" class="hidden"></div>
+
+  <!-- RESULTS PAGE -->
+  <div id="pageResults" class="hidden"></div>
+
+  <!-- ADMIN PAGE -->
+  <div id="pageAdmin" class="hidden">
+    <div class="card">
+      <h2>Admin Panel</h2>
+      <p>Default PIN: <b>1234</b></p>
+      <input type="password" id="adminPin" placeholder="Enter PIN">
+      <button class="btn btn-primary" onclick="unlockAdmin()">Unlock</button>
+      <p id="adminMsg" class="error"></p>
+    </div>
+    <div id="adminContent" class="hidden">
+      <div class="card">
+        <h2>Add New Candidate</h2>
+        <div class="row">
+          <div><label>Name</label><input type="text" id="cName"></div>
+          <div><label>Position</label>
+            <select id="cPos">
+              <option>Head Boy</option>
+              <option>Head Girl</option>
+              <option>Class Representative</option>
+              <option>Sports Captain</option>
+              <option>Entertainment Captain</option>
+            </select>
+          </div>
+        </div>
+        <label>Manifesto / Slogan</label>
+        <input type="text" id="cManifesto" placeholder="e.g. Education for all">
+        <button class="btn btn-primary" onclick="addCandidate()">Add Candidate</button>
+      </div>
+      <div class="card">
+        <h2>Manage</h2>
+        <div id="adminList"></div>
+        <div class="btn-group">
+          <button class="btn btn-secondary" onclick="resetVotes()">Reset All Votes</button>
+          <button class="btn btn-danger" onclick="resetAll()">Reset Everything</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

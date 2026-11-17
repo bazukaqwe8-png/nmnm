@@ -1,0 +1,216 @@
+/* ===== RESET & BASE ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+body {
+  background: #f0f4f8;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  color: white;
+  padding: 18px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(30,64,175,0.3);
+}
+header h1 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+nav button {
+  margin: 3px;
+  padding: 8px 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  transition: 0.2s;
+}
+nav button:hover {
+  background: rgba(255,255,255,0.25);
+}
+nav button.active {
+  background: white;
+  color: #1e40af;
+  border-color: white;
+}
+
+/* ===== CONTAINER & CARDS ===== */
+.container {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  margin-bottom: 20px;
+  border: 1px solid #e2e8f0;
+}
+h2 {
+  color: #1e40af;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+/* ===== FORMS ===== */
+label {
+  display: block;
+  margin: 14px 0 6px;
+  font-weight: 700;
+  font-size: 13px;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+input, select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #f8fafc;
+  transition: 0.2s;
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: #1e40af;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(30,64,175,0.1);
+}
+.row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.row > div {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  padding: 11px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 14px;
+  transition: 0.2s;
+}
+.btn-primary {
+  background: #1e40af;
+  color: white;
+}
+.btn-primary:hover {
+  background: #1e3a8a;
+  transform: translateY(-1px);
+}
+.btn-secondary {
+  background: #e2e8f0;
+  color: #334155;
+}
+.btn-secondary:hover { background: #cbd5e1; }
+.btn-danger {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.btn-danger:hover { background: #fecaca; }
+.btn-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+/* ===== VOTING CARDS ===== */
+.candidate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+.candidate {
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: #ffffff;
+}
+.candidate:hover {
+  border-color: #3b82f6;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(59,130,246,0.15);
+}
+.candidate.selected {
+  border-color: #16a34a;
+  background: #f0fdf4;
+  box-shadow: 0 0 0 3px rgba(22,163,74,0.15);
+}
+.candidate img {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e2e8f0;
+}
+.candidate h3 { margin: 10px 0 4px; font-size: 16px; }
+.candidate p { font-size: 13px; color: #64748b; }
+.badge {
+  display: inline-block;
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+/* ===== RESULTS ===== */
+.results-bar {
+  background: #e2e8f0;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+.results-fill {
+  background: linear-gradient(90deg, #1e40af, #3b82f6);
+  height: 100%;
+  width: 0;
+  transition: width 0.9s ease;
+}
+.winner {
+  border: 2px solid #f59e0b !important;
+  background: #fffbeb !important;
+}
+
+/* ===== UTILITIES ===== */
+.hidden { display: none !important; }
+.error { color: #dc2626; font-size: 13px; margin-top: 8px; font-weight: 600; }
+
+@media (max-width: 600px) {
+  header { flex-direction: column; align-items: flex-start; }
+  .row { flex-direction: column; gap: 0; }
+  .candidate-grid { grid-template-columns: 1fr 1fr; }
+}
